@@ -16,15 +16,14 @@ import rasterio
 import pandas as pd
 import numpy as np
 
-# Replace 'your_file_name.tif' with the name of your uploaded file
+# Users can replace with 'user_file_name.tif'
 tiff_file = 'ForestLoss_NewAOI (2).tif'
 
 # Open the TIFF file
 with rasterio.open(tiff_file) as src:
-    # Read the raster data
-    data = src.read(1)  # Read the first band
-    transform = src.transform  # Affine transform
-    nodata = src.nodata  # NoData value if present
+    data = src.read(1) 
+    transform = src.transform  
+    nodata = src.nodata  
 
     # Get the dimensions of the raster
     rows, cols = data.shape
