@@ -1,35 +1,45 @@
-# Manaus-Amazon-Brazil_deforestation
-# Deforestation Trends in the Amazon Rainforest
-
-## Project Overview
-This project visualizes and analyzes deforestation trends in the Amazon Rainforest using data from the Global Forest Change dataset by Hansen et al., accessed via Google Earth Engine (GEE). The goal is to provide insights into forest cover loss from 2000 to 2023.
+# Manaus-Amazon-Brazil Deforestation
 
 ## Objective
-- Visualize degree of deforestation using a map showing areas  affected by deforestation between years 2000-2023 in Tableau .
-- Quantify degree of deforestation.
+- **Visualize Deforestation**: Create a map showing areas affected by deforestation between 2000-2023 using Tableau.
+- **Quantify Deforestation**: Analyze the degree of deforestation in the Amazon rainforest.
 
-## Technologies Used
-- **Tableau**: For data visualization and dashboard creation.
-- **Google Earth Engine**: For data extraction and preprocessing.
-- **Global Forest Change Dataset**: Source of deforestation data.
+## Project Components
 
-## Data Extraction
-The Hansen data was extracted from Google Earth Engine using the script `hansen_data_extraction.js`. Follow these steps to obtain the data:
-1. Set up Google Earth Engine (GEE) account and environment.
-2. Run the `hansen_data_extraction.js` script to export data.
+- **Google Earth Engine (GEE) Script**: Processes and downloads forest loss data as a GeoTIFF file.
+  - [View the GEE Script](https://code.earthengine.google.com/?accept_repo=users/akashs23/Manaus-Amazon_deforestation)
 
-## Setup Instructions
-1. **Download the Data**: Use the GEE script to export the dataset. Follow GEE documentation for setting up and running scripts.
-2. **Open Tableau Workbook**: Open `Tableau_Workbook.twbx` in Tableau Desktop to interact with the dashboards.
+- **Data Conversion**: Python script to convert the GeoTIFF file into a CSV format for further analysis.
+  - `geotiff_to_csv.py`: Converts the GeoTIFF file (ForestLossYear_NewAOI.tif) into a CSV file (output_file.csv).
 
-## Usage Instructions
-1. Open `Tableau_Workbook.twbx` in Tableau Desktop.
-2. Explore the sheets to analyze deforestation patterns and trends.
+- **Data Visualization**: Tableau workbook for visualizing the processed data and analyzing deforestation patterns.
+  - `Manaus-Amazon_deforestation.twbx`: Tableau workbook with visualizations of the deforestation analysis.
 
-## Data Sources
-- [Global Forest Change Dataset by Hansen et al.](https://www.globalforestwatch.org/)
-- [Google Earth Engine](https://earthengine.google.com/)
+## Files Included
 
-## License
-This project is licensed under the MIT License.
+- `Manaus-Amazon_deforestation_GEE.js`: Google Earth Engine script for processing and downloading forest loss data as a GeoTIFF.
+- `ForestLossYear_NewAOI.tif`: GeoTIFF file of forest loss data downloaded using GEE.
+- `geotiff_to_csv.py`: Python script for converting the GeoTIFF file to CSV.
+- `output_file.csv`: CSV file with processed data from the GeoTIFF file.
+- `Manaus-Amazon_deforestation.twbx`: Tableau workbook for data visualization.
+- `README.md`: This file, containing project details and instructions.
+- `LICENSE`: MIT License for the project.
 
+## How to Use
+
+1. **Google Earth Engine**: Access and run the GEE script using the provided link. This will generate and download the GeoTIFF file.
+2. **Python Script**: Execute the `geotiff_to_csv.py` script to convert the downloaded GeoTIFF file (`ForestLossYear_NewAOI.tif`) into a CSV file (`output_file.csv`).
+   ```bash
+   python geotiff_to_csv.py
+3. **Tableau**: Open the `Manaus-Amazon_deforestation.twbx` file in Tableau Desktop or Tableau Public to view and interact with the data visualizations.
+
+## Additional Information
+Data Source: The GeoTIFF data is derived from the Global Forest Change dataset provided by Hansen et al., accessed via Google Earth Engine.
+
+## Dependencies:
+Google Earth Engine: Required to run the GEE script.
+Python: Necessary for running the `geotiff_to_csv.py` script. Ensure that `rasterio` and `pandas` libraries are installed.
+Tableau: Needed to open and analyze the `.twbx` file.
+
+## License:
+This project is licensed under the MIT License. See the `LICENSE` file for details.
